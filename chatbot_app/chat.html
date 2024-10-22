@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .chatbox {
+            width: 400px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .input-box {
+            width: 100%;
+            padding: 10px;
+        }
+        .response {
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbox">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="user_input" class="input-box" placeholder="Ask something...">
+            <button type="submit">Send</button>
+        </form>
+        <div class="response">
+            <p>{{ response }}</p>
+        </div>
+    </div>
+</body>
+</html>
